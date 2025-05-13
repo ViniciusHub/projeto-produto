@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page Produto</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      scroll-behavior: smooth;
+    }
+    header.sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease-in-out;
+    }
+    #galleryModal img {
+      width: 100%;
+    }
+    .carousel-testimonials {
+      overflow-x: auto;
+      display: flex;
+      scroll-snap-type: x mandatory;
+    }
+    .carousel-testimonials .card {
+      min-width: 300px;
+      margin: 10px;
+      scroll-snap-align: start;
+    }
+    #countdown {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    section#hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    section#hero .d-flex.gap-2 {
+      max-width: 268px;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Formulário de Captura -->
+  <section id="lead-form" class="container py-5">
+    <h2>Cadastre-se para saber mais</h2>
+    <form id="form">
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="telefone" class="form-label">Telefone</label>
+        <input type="text" class="form-control" id="telefone" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Página do Produto (oculta inicialmente) -->
+  <main id="product-page" class="d-none">
+    <header id="main-header" class="p-3 bg-light">
+      <h1 id="welcome"></h1>
+    </header>
+
+    <section id="hero" class="container py-5">
+      <img id="mainImage" src="img/produto1.png" class="img-fluid mb-3">
+      <div class="d-flex gap-2">
+        <img src="img/produto1.png" class="img-thumbnail thumb" data-src="img/produto1.png">
+        <img src="img/produto2.png" class="img-thumbnail thumb" data-src="img/produto2.png">
+      </div>
+    </section>
+
+    <section id="about" class="container py-5">
+      <h2>Sobre o Produto</h2>
+      <p>Produto incrível com muitos benefícios...</p>
+    </section>
+
+    <section id="gallery" class="container py-5">
+      <h2>Galeria</h2>
+      <div class="row">
+        <div class="col-4"><img src="img/produto1.png" class="img-fluid gallery-img" data-bs-toggle="modal" data-bs-target="#galleryModal"></div>
+        <div class="col-4"><img src="img/produto2.png" class="img-fluid gallery-img" data-bs-toggle="modal" data-bs-target="#galleryModal"></div>
+      </div>
+    </section>
+
+    <!-- Modal Galeria -->
+    <div class="modal fade" id="galleryModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <img id="modalImage" src="" class="img-fluid">
+        </div>
+      </div>
+    </div>
+
+    <section id="testimonials" class="container py-5">
+      <h2>Depoimentos</h2>
+      <div class="carousel-testimonials">
+        <div class="card p-3">Cliente 1: Ótimo produto!</div>
+        <div class="card p-3">Cliente 2: Recomendo muito!</div>
+      </div>
+    </section>
+
+    <section id="cta" class="container py-5 text-center">
+      <h2>Promoção por Tempo Limitado!</h2>
+      <div id="countdown"></div>
+      <button class="btn btn-success mt-3">Compre Agora</button>
+    </section>
+
+    <footer class="bg-dark text-white text-center p-3">
+      <p>Redes sociais | Políticas</p>
+    </footer>
+  </main>
+
+  <script>
+    // Máscara para telefone brasileiro
+    const telefoneInput = document.getElementById("telefone");
+    telefoneInput.addEventListener("input", function () {
+      let value = this.value.replace(/\D/g, "");
+      value = value.replace(/(\d{2})(\d)/, "($1) $2");
+      value = value.replace(/(\d{5})(\d{4})$/, "$1-$2");
+      this.value = value;
+    });
+
+    // Submissão do formulário
+    document.getElementById("form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const nome = document.getElementById("nome").value;
+      document.getElementById("lead-form").classList.add("d-none");
+      document.getElementById("product-page").classList.remove("d-none");
+      document.getElementById("welcome").innerText = `Bem-vindo, ${nome}!`;
+    });
+
+    // Sticky Header
+    window.addEventListener("scroll", function () {
+      document.getElementById("main-header").classList.toggle("sticky", window.scrollY > 50);
+    });
+
+    // Troca de imagem no hero
+    document.querySelectorAll(".thumb").forEach((thumb) => {
+      thumb.addEventListener("click", () => {
+        document.getElementById("mainImage").src = thumb.dataset.src;
+      });
+    });
+
+    // Modal da galeria
+    document.querySelectorAll(".gallery-img").forEach((img) => {
+      img.addEventListener("click", () => {
+        document.getElementById("modalImage").src = img.src;
+      });
+    });
+
+    // Countdown Timer
+    const countdown = document.getElementById("countdown");
+    let time = 5 * 60; // 5 minutos
+    setInterval(() => {
+      const minutes = Math.floor(time / 60);
+      const seconds = time % 60;
+      countdown.textContent = `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+      if (time > 0) time--;
+    }, 1000);
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
