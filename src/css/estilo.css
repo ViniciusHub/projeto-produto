@@ -1,0 +1,323 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  scroll-behavior: smooth;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.container-site {
+  max-width: 1330px;
+  margin: 0 auto;
+  width: 100%;
+}
+header a, footer a {
+  color: #ff9900;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+img.img-thumbnail.thumb {
+  cursor: pointer;
+}
+header a:hover, footer a:hover {
+  color: #ffaa33;
+}
+.modal-content img#modalImage {
+  width: max-content;
+  margin: 0 auto;
+}
+.modal-content {
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+}
+button#close-modal {
+  position: absolute;
+  right: 0;
+  top: 0;
+  max-width: 50px;
+  z-index: 1;
+}
+button#close-modal {
+  position: absolute;
+  right: -14px;
+  top: -13px;
+  max-width: 40px;
+  height: 40px;
+  padding: 0px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.depoimentos-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 30px;
+}
+body.projeto-produto-body.modal-open {
+  padding-right: 0px!important;
+}
+.carousel-testimonials .card {
+  display: flex;
+  align-items: center;
+  flex: 0 0 100%;
+  background-color: #f8f8f8;
+  border: none;
+}
+button.btn.btn-success.mt-3 {
+  border: none;
+  height: 54px;
+}
+.preco-timer {
+  font-size: calc(1.325rem + .9vw);
+  color: red;
+}
+.carousel-testimonials .card span.card-span {
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: .625rem;
+  background: #fff;
+  box-shadow: 0px .3px .9px rgba(0, 0, 0, .1), 0px 1.6px 3.6px rgba(0, 0, 0, .13);
+  border-radius: 2px;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  width: 100%;
+}
+header.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+#galleryModal img {
+  width: 100%;
+}
+.carousel-testimonials {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 200%;
+}
+section#testimonials {
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background: gray;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+} 
+.dot.active {
+  background: black;
+}
+.dots-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  position: relative;
+  bottom: 15px;
+}
+.depoimentos-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-testimonials {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%;
+}
+#countdown {
+  font-size: 2rem;
+  font-weight: bold;
+}
+section#hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+section#hero .d-flex.gap-2 {
+  margin: 0px 58px;
+}
+.carousel-wrapper.position-relative {
+  width: 100%;
+}
+#carousel::-webkit-scrollbar {
+  display: none;
+}
+#carousel {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+header#main-header {
+  background-color: #1f1f1f;
+  color: white;
+  width: 100%;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  transition: all 0.3s linear;
+}
+header#main-header .account.flex.align-center {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+body.projeto-produto-body {
+  background-color: #0d0d0d;
+  overflow-x: hidden;
+}
+footer {
+  background: #1f1f1f;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+.social-icons a {
+  font-size: 2rem;
+  color: #555;
+  margin: 0 10px;
+  text-decoration: none;
+}
+.social-icons i {
+  color: white;
+}
+form#form {
+  color: #ffffff;
+  background: #1f1f1f;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 460px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: left;
+}
+button, button.btn.btn-primary {
+  background: linear-gradient(135deg, #ff9900, #ff6600);
+  border: none;
+  padding: 10px 25px;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+button:hover, button.btn.btn-primary:hover {
+  background: linear-gradient(135deg, #ffaa33, #ff7a1a);
+}
+section#lead-form {
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 13px;
+}
+section#lead-form h2 {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 14px;
+}
+svg#topo-MINHACONTA path {
+  fill: white;
+}
+.spot-inicial {
+  line-height: 1.2;
+  margin-left: 10px;
+}
+#whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  animation: pulse 2s infinite;
+  transition: transform 0.3s ease;
+  border-radius: 80px;
+}
+#whatsapp-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #25D366;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+#whatsapp-button:hover {
+  transform: scale(1.05);
+}
+main#product-page {
+  padding-top: 71px;
+}
+div#logado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10px;
+}
+main#product-page {
+  background-color: #f8f8f8;
+}
+#prevBtn, #nextBtn {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  z-index: 10;
+  max-width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+#prevBtn:hover,
+#nextBtn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+#prevBtn:disabled,
+#nextBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+@media (max-width: 768px) {
+
+button#close-modal {
+  right: -7px;
+  top: -19px;
+}
+
+}
